@@ -28,8 +28,8 @@ namespace Invector
             Handles.DrawLine(tpos, ray.GetPoint(_fadeControl.distanceToEndFade));
             Handles.color = (_fadeControl.distanceToEndFade < _fadeControl.distanceToStartFade) ? Color.green : Color.red;
             Handles.DrawAAPolyLine(10f, new Vector3[] { ray.GetPoint(_fadeControl.distanceToEndFade), ray.GetPoint(_fadeControl.distanceToStartFade) });
-            Handles.CubeHandleCap(0, ray.GetPoint(_fadeControl.distanceToEndFade), Quaternion.LookRotation(_fadeControl.cameraTransform.position - ray.GetPoint(_fadeControl.distanceToEndFade)), 0.05f, EventType.ignore);
-            Handles.ConeHandleCap(0, ray.GetPoint(_fadeControl.distanceToStartFade), Quaternion.LookRotation(ray.GetPoint(_fadeControl.distanceToStartFade) - _fadeControl.cameraTransform.position), 0.1f, EventType.ignore);
+            Handles.CubeHandleCap(0, ray.GetPoint(_fadeControl.distanceToEndFade), Quaternion.LookRotation(_fadeControl.cameraTransform.position - ray.GetPoint(_fadeControl.distanceToEndFade)), 0.05f, EventType.Ignore);
+            Handles.ConeHandleCap(0, ray.GetPoint(_fadeControl.distanceToStartFade), Quaternion.LookRotation(ray.GetPoint(_fadeControl.distanceToStartFade) - _fadeControl.cameraTransform.position), 0.1f, EventType.Ignore);
             Handles.color = new Color(1, 1, 1, 0.5f);
             Handles.DrawLine(ray.GetPoint(_fadeControl.distanceToStartFade), _fadeControl.cameraTransform.position);
             Handles.DrawPolyLine(new Vector3[] { ray.GetPoint(_fadeControl.distanceToEndFade), ray.GetPoint(_fadeControl.distanceToStartFade) });
