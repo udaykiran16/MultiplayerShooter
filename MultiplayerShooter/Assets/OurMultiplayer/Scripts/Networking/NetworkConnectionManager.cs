@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
-namespace UnderdogCity
+namespace Com.UnikhGames.MultiplayerShooter
 {
     public class NetworkConnectionManager : MonoBehaviourPunCallbacks
     {

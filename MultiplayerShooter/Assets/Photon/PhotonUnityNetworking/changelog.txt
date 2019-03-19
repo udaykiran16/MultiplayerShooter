@@ -1,5 +1,16 @@
 PUN 2 Change Log
 
+
+v2.8 (15. March 2019)
+Changed: Unity 5.6.6f2 is now the minimum supported version. Older versions won't run in the most up to date MacOS anymore, so we decided to drop those.
+Added: VIVEPORT Authentication provider. See: https://www.photonengine.com/en-us/viveport and docs: https://doc.photonengine.com/en-us/arvr/current/connection-and-authentication/authentication/viveport-auth
+Changed: The cached "best region" is cleared whenever a region's pinging finishes. This fixes a potential issue when the BestRegion value is used before the pinging is done. Then, you end up with a wrong selection.
+Added: When connecting to a Master Server directly (likely a Photon Server / OnPremise) without a UserId, PUN will now set a GUID. This reflects the behaviour of the Photon Cloud and helps differentiate clients by a UserId in matchmaking.
+Changed: When connecting to a Master Server directly (likely a Photon Server / OnPremise) with WebSockets, PUN now automatically uses a compatible serialization protocol (GpBinaryV16).
+Changed: The callback OnRoomPropertiesUpdate is not called when/before entering a room. It was called whenever properties change, which is also the case when the Realtime API constructs the room (with properties). Wait for OnJoinedRoom and check properties the first time when that's called.
+Updated: Photon3Unity3d.dll library to 4.1.2.10, rev5023.
+
+
 v2.7 (13. February 2019)
 Fixed: Offline mode. Custom properties are now set properly.
 Renamed: PhotonNetwork.BackgroundTimeout is now PhotonNetwork.KeepAliveInBackground.
@@ -8,7 +19,6 @@ Fixed: A crash problem on Nintendo Switch. Setting a Thread.Name caused a crash 
 Updated: Photon3Unity3d.dll library to 4.1.2.9, rev4985.
 Photon Chat:
     Added: Client API for Max Subscribers and Publish Subscribers features inside public channels.
-
 
 v2.6 (25th January 2019)
 Fixed: Offline custom properties are now set even if ExpectedProperties is set, as there is only one source for setting properties when in offline mode. 
