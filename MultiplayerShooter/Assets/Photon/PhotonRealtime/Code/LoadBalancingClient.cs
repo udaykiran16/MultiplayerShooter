@@ -1643,7 +1643,10 @@ namespace Photon.Realtime
             if (this.CurrentRoom != null && gameProperties != null)
             {
                 this.CurrentRoom.InternalCacheProperties(gameProperties);
-                this.InRoomCallbackTargets.OnRoomPropertiesUpdate(gameProperties);
+                if (this.InRoom)
+                {
+                    this.InRoomCallbackTargets.OnRoomPropertiesUpdate(gameProperties);
+                }
             }
 
             if (actorProperties != null && actorProperties.Count > 0)
@@ -1681,9 +1684,7 @@ namespace Photon.Realtime
                             target = this.CreatePlayer(newName, actorNr, false, props);
                             this.CurrentRoom.StorePlayer(target);
                         }
-
                         target.InternalCacheProperties(props);
-                        this.InRoomCallbackTargets.OnPlayerPropertiesUpdate(target, props);
                     }
                 }
             }
