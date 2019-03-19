@@ -5,9 +5,8 @@ using UnityEngine.UI;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
-
-
-
+namespace UnderdogCity
+{
     public class NetworkConnectionManager : MonoBehaviourPunCallbacks
     {
 
@@ -106,4 +105,4 @@ using UnityEngine.SceneManagement;
                 PhotonNetwork.LoadLevel("TPScene");
         }
     }
-
+}
